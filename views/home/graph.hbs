@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basscss@9.0.0-0/basscss.min.css">
+        <title></title>
+    </head>
+    <body>
+        <div class="container fluid p2">
+            <div class="ui two secondary pointing item menu">
+              <a class="item old book active">旧约</a>
+              <a class="item new book">新约</a>
+            </div>
+            <div class="ui fluid search">
+                <div class="ui icon input" style="width:100%">
+                    <input class="prompt" type="text" placeholder="搜索章节名称">
+                    <i class="search icon"></i>
+                </div>
+                <div class="results"></div>
+            </div>
+            <br>
+            <div class="ui two column grid">
+                {{#each bookId}}
+                <div class="column roll" data-value="{{this.NewOrOld}}">
+                    <div class="ui raised segment">
+                        <div class="ui blue ribbon label">
+                            {{this.ShortName}} 
+                        </div>
+                        <span class="chapter" >章节数{{this.ChapterNumber}}</span>
+                        <p></p>
+                        <div class="ui blue ribbon label">
+                          {{this.FullName}}
+                        </div>
+                        <p></p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script src="script/home/bundle/graph.js"></script>
+</html>
