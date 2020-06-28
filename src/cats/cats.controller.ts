@@ -1,7 +1,5 @@
 import { Controller ,Get, Render, Param } from '@nestjs/common';
 import { CatsService } from './cats.service';
-const sqlite3 = require('sqlite3').verbose();
-import { open } from 'sqlite'
 import * as R from "ramda"
 @Controller()
 export class CatsController {
@@ -14,12 +12,6 @@ export class CatsController {
         return {bookId: row}
   }
 
-  @Get('book')
-  @Render('home/graph')
-  async getGraph( ){
-        const row = await this.catsService.getIndex()
-        return {bookId: row}
-  }
 
   @Get('roll')
   @Render('home/chapter')
