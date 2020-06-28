@@ -1,7 +1,8 @@
-import { Controller ,Get, Render } from '@nestjs/common';
+import { Controller ,Get, Render, Param } from '@nestjs/common';
 import { CatsService } from './cats.service';
 const sqlite3 = require('sqlite3').verbose();
 import { open } from 'sqlite'
+import * as R from "ramda"
 @Controller()
 export class CatsController {
 
@@ -13,18 +14,37 @@ export class CatsController {
         return {bookId: row}
   }
 
-  @Get('home1')
+  @Get('book')
   @Render('home/graph')
-  async getHome1(){
+  async getGraph( ){
         const row = await this.catsService.getIndex()
-      console.log(row)
         return {bookId: row}
   }
 
+  @Get('roll')
+  @Render('home/chapter')
+  getChapter(){
+      return null
+  }
+
+  @Get('chapter/:chapter/:verse')
+  async getChapteVerse(@Param('chapter') chapter, @Param('verse') verse){
+        let row = await this.catsService.getBook(verse, chapter)
+      row  = row.map(cur => {
+          cur.Lection = R.trim(cur.Lection)
+          return cur
+      })
+      console.log({chapter: row, verseSN: verse})
+        return {chapter: row, verseSN: verse}
+  }
+  @Get('bookid')
+  async getBookId(){
+        const row = await this.catsService.getIndex()
+        return {bookId: row}
+  }
    @Get('home/book')
    async getBible() {
-       const row = await this.catsService.getBook()
-       console.log(row)
+       const row = await this.catsService.getBook(0,0)
        return {bookId: row}
     }
 }

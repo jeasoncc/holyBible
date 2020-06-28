@@ -8,9 +8,10 @@ export class CatsService {
          })
         return res
     }
-    getBook() {
+    getBook(ChapterSN: number , verse: number ) {
         const res =  openDb().then(db => {
-            return db.all('SELECT * FROM bible where ID < 4')
+            const sql = `SELECT * FROM bible where ChapterSN = ${ChapterSN } AND VolumeSN= ${verse}`
+            return db.all(sql)
          })
         return res
     }
