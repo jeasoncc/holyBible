@@ -3,44 +3,52 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basscss@9.0.0-0/basscss.min.css">
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
         <title></title>
     </head>
     <body>
-        <div class="container fluid p2">
-            <div class="ui two secondary pointing item menu">
-              <a class="item old book active">旧约</a>
-              <a class="item new book">新约</a>
-            </div>
-            <div class="ui fluid search">
-                <div class="ui icon input" style="width:100%">
-                    <input class="prompt" type="text" placeholder="搜索章节名称">
-                    <i class="search icon"></i>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-button>
+                    <ion-icon slot="icon-only" name="return-up-back-outline"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-buttons slot="primary">
+                <ion-button>
+                    <ion-menu-button auto-hide="false"></ion-menu-button>
+                </ion-button>
+            </ion-buttons>
+
+            <ion-title>圣经</ion-title>
+        </ion-toolbar>
+        <!-- Segment with anchors -->
+        <ion-segment>
+            <ion-segment-button value="dogs">
+                <ion-label>旧约</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="cats">
+                <ion-label>新约</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+
+        <ion-content style="height:80vh">
+            <!-- Notes in a List -->
+            <ion-list>
+                <div>
+                    {{#each bookId}}
+                    <ion-item button class="rollButton" data-value="{{this.ChapterNumber}}">
+                        <ion-note style="width:4rem;margin-right:.1rem" slot="start" color="tertiary">{{this.ShortName}}</ion-note>
+                        <ion-label>{{this.FullName}}</ion-label>
+                        <ion-note slot="end" >{{this.ChapterNumber}}</ion-note>
+                    </ion-item>
+                    {{/each}}
                 </div>
-                <div class="results"></div>
-            </div>
-            <br>
-            <div class="ui two column grid">
-                {{#each bookId}}
-                <div class="column roll" data-value="{{this.NewOrOld}}">
-                    <div class="ui raised segment">
-                        <div class="ui gray ribbon label">
-                            {{this.ShortName}} 
-                        </div>
-                        <span class="chapter" >章节数{{this.ChapterNumber}}</span>
-                        <p></p>
-                        <div class="ui teal ribbon label">
-                          {{this.FullName}}
-                        </div>
-                        <p></p>
-                    </div>
-                </div>
-                {{/each}}
-            </div>
-        </div>
+            </ion-list>
+        </ion-content>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-    <script src="script/home/bundle/graph.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <script src="/script/home/bundle/graph.js"></script>
 </html>

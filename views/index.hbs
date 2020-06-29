@@ -3,40 +3,45 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basscss@9.0.0-0/basscss.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
         <link rel="stylesheet" href="/assert/style/main.css">
-        <style type="text/css" media="all">
-            .home-image{
-                background-image: url("assert/image/2.svg");
-                background-repeat:no-repeat;
-                background-size: contain;
-                background-position: top left;
-                height:40vh
-            }
-        </style>
         <title></title>
     </head>
     <body>
-        <div class="container fluid ">
-            <div class="border  ui two column doubling stackable grid items-center">
-                <div class="wide home-image column ">
-                </div>
-                <div class="border  column wide">
-                    <form class="ui form p2">
-                        <div class="field">
-                            <label>User Name</label>
-                            <input type="text" name="first-name" placeholder="First Name">
-                        </div>
-                        <div class="field">
-                            <label>Password</label>
-                            <input type="password" name="last-name" placeholder="Last Name">
-                        </div>
-                        <a class="ui button" href="/home">Login</a>
-                    </form>
-                </div>
-            </div>
-        </div>
+
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-button>
+                    <ion-icon slot="icon-only" name="return-up-back-outline"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-title>Holy Bible</ion-title>
+            <ion-buttons slot="secondary">
+                <ion-menu-button auto-hide="false"></ion-menu-button>
+            </ion-buttons>
+        </ion-toolbar>
+        <!-- Segment with anchors -->
+        <ion-segment>
+            <ion-segment-button value="dogs">
+                <ion-label>旧约</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="cats">
+                <ion-label>新约</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+
+        <!-- Default Note -->
+        <!-- Notes in a List -->
+        <ion-list>
+            <ion-item>
+                <ion-note slot="start">Off</ion-note>
+                <ion-label>Note (Start)</ion-label>
+                <ion-note slot="end">On</ion-note>
+            </ion-item>
+        </ion-list>
+
+
     </body>
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
 </html>

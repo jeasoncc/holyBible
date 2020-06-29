@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import {getRoll} from '../dao/book'
+import {getRoll, getChapterVerse } from '../dao/book'
 @Injectable()
 export class BookService {
 
-    getRoll() {
-        return getRoll
-    }
+    getRoll = getRoll
+    getChapterVerse = getChapterVerse 
 }
