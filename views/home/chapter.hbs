@@ -9,10 +9,10 @@
     </head>
     <body>
         <ion-app>
-            <ion-header>
+            <ion-header class="header">
                 <ion-toolbar>
                     <ion-buttons slot="start">
-                        <ion-button class="backButton">
+                        <ion-button class="goBack">
                             <ion-icon slot="icon-only" name="return-up-back-outline"></ion-icon>
                         </ion-button>
                     </ion-buttons>
@@ -29,8 +29,8 @@
                 <!-- Notes in a List -->
                 <ion-list>
                     <ion-list-header>
-                        <span>第{{verse}}章</span>-
-                        <span>第{{chapter}}节</span>
+                        <span>第{{verse}}卷</span>-
+                        <span>第{{chapter}}章</span>
                     </ion-list-header>
 
                     {{#each row}}
@@ -44,17 +44,17 @@
                 </ion-list>
             </ion-content>
             <ion-tab-bar slot="bottom">
-                <ion-tab-button tab="music">
-                    <ion-label>Music</ion-label>
-                    <ion-icon name="musical-note"></ion-icon>
-                </ion-tab-button>
-                <ion-tab-button tab="movies">
-                    <ion-label>Movies</ion-label>
-                    <ion-icon name="videocam"></ion-icon>
-                </ion-tab-button>
                 <ion-tab-button tab="games">
-                    <ion-label>Games</ion-label>
-                    <ion-icon name="game-controller"></ion-icon>
+                    <ion-label>{{volume.FullName}}</ion-label>
+                    <ion-icon name="receipt-outline"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="back" class="backButton"  data-verse="{{verse}}" data-chapter="{{chapter}}">
+                    <ion-label>上一章</ion-label>
+                    <ion-icon name="arrow-back-outline"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="next" class="nextButton" data-verse="{{verse}}" data-chapter="{{chapter}}" data-chapterNum="{{volume.ChapterNumber}}">
+                    <ion-label>下一章</ion-label>
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
                 </ion-tab-button>
             </ion-tab-bar>
         </ion-app>
@@ -62,5 +62,5 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
-    <script src="/script/home/bundle/graph.js"></script>
+    <script src="/script/home/bundle/chapter.js"></script>
 </html>

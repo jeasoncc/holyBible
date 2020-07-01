@@ -14,3 +14,10 @@ export const getChapterVerse = (verse: number, chapter: number  ) => {
     })
     return res
 }
+
+export const getVerseName = ( verse: number,)  =>{
+    const res =  openDb().then(db => {
+        return db.get(`SELECT * FROM bibleID where SN= ${verse}`)
+    })
+    return res
+}

@@ -1404,5 +1404,5 @@ fetch("home/bookid").then(res => {
     })
 })
 
-}).call(this,require("fsovz6"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_323d2cc.js","/")
+}).call(this,require("fsovz6"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_512ed283.js","/")
 },{"buffer":3,"fsovz6":2}]},{},[5])

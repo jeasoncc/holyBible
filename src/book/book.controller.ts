@@ -6,10 +6,10 @@ export class BookController {
 
   constructor(private readonly  bookService: BookService) {}
 
-  @Get('allroll')
+  @Get('allroll/:newOld')
   @Render('home/book')
-  async getAllRoll( ){
-        const row = await this.bookService.getRoll(0)
+  async getAllRoll( @Param('newOld') newOld){
+        const row = await this.bookService.getRoll(newOld)
         console.log(row)
         return {bookId: row}
   }
@@ -17,14 +17,14 @@ export class BookController {
   @Render('home/chapter')
   @Get('chapter/:verse/:chapter')
   async getChapteVerse( @Param('verse') verse, @Param('chapter') chapter){
-      console.log(chapter)
-      console.log(verse)
       let row = await this.bookService.getChapterVerse(verse,chapter) 
+      const volume = await this.bookService.getVerseName(verse) 
+      console.log(volume)
       row  = row.map(cur => {
           cur.Lection = R.trim(cur.Lection)
           return cur
       })
-      return {row,verse,chapter} 
+      return {row,verse,chapter, volume} 
   }
 
 

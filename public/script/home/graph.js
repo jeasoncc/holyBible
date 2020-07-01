@@ -1,42 +1,21 @@
 const fromEvent = require("rxjs").fromEvent
-const throttleTime = require('rxjs/operators').throttleTime
-const  of =  require('rxjs').of;
-const  fromFetch =  require('rxjs/fetch').fromFetch ;
-const switchMap= require('rxjs/operators').switchMap
-const catchError = require('rxjs/operators').catchError
-const $ = require("jquery")
 
-
-fromEvent($(`.rollButton`), 'click').subscribe((e) => {
-    const target = e.currentTarget
-    console.log(target )
-});
-
-const fetchFn = (val, fn) => {
-    const data$ = fromFetch(val).pipe(
-     switchMap(response => {
-       if (response.ok) {
-         return response.json();
-       } else {
-         return of({ error: true, message: `Error ${response.status}` });
-       }
-     }),
-     catchError(err => {
-       console.error(err);
-       return of({ error: true, message: err.message })
-     })
-    );
-
-    data$.subscribe({
-     next: result => fn(result),
-     complete: () => console.log('done')
+const bookClickFn = (() => {
+    fromEvent($(`.bookButton`), 'click').subscribe((e) => {
+        const target = e.currentTarget
+        const href = $(target).attr("value")
+        location.href = href
     });
-}
-//fetchFn('/bookid', (res) => {
-//    const conten = res.bookId.map(cur => {
-//        return {
-//            title: cur.FullName
-//        }
-//    })
-//    $('.ui.search').search({source: conten})
-//})
+})()
+
+const rollClickFn = (() => {
+    fromEvent($(`.rollButton`), 'click').subscribe((e) => {
+        const target = e.currentTarget
+        const roolNumber = $(target).attr("data-value")
+        const href = (val) => {
+            return `/bible/chapter/${val}/1`
+        }
+        location.href = href(roolNumber)
+    });
+})()
+
