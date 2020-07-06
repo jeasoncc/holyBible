@@ -5,14 +5,25 @@
         <meta name="viewport" content="width=device-width">
         <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
-        <title></title>
+        <title>圣经Holy Bible</title>
     </head>
+    <script>
+        async function presentToast(value) {
+          const toast = document.createElement('ion-toast');
+          toast.message = value;
+          toast.duration = 2000;
+
+          document.body.appendChild(toast);
+          return toast.present();
+        }
+        window.presentToast = presentToast;
+    </script>
     <body>
         <ion-app>
             <ion-header class="header">
                 <ion-toolbar>
                     <ion-buttons slot="start">
-                        <ion-button class="goBack">
+                        <ion-button class="goBack" href="/bible/allroll/0">
                             <ion-icon slot="icon-only" name="return-up-back-outline"></ion-icon>
                         </ion-button>
                     </ion-buttons>
@@ -26,13 +37,15 @@
                 </ion-toolbar>
             </ion-header>
             <ion-content style="height:80vh">
-                <!-- Notes in a List -->
                 <ion-list>
-                    <ion-list-header>
-                        <span>第{{verse}}卷</span>-
-                        <span>第{{chapter}}章</span>
+                    <!-- List Headers in Lists -->
+                    <ion-list-header lines="inset">
+                        <ion-label>
+                            <span>第{{verse}}卷</span>-
+                            <span>第{{chapter}}章</span>
+                        </ion-label>
+                        <ion-button>{{volume.FullName}}</ion-button>
                     </ion-list-header>
-
                     {{#each row}}
                     <ion-item class="rollButton" data-value="{{this.ID}}">
                         <p><span>{{this.VerseSN}}. </span>{{this.Lection}}</p>
@@ -45,8 +58,8 @@
             </ion-content>
             <ion-tab-bar slot="bottom">
                 <ion-tab-button tab="games">
-                    <ion-label>{{volume.FullName}}</ion-label>
-                    <ion-icon name="receipt-outline"></ion-icon>
+                    <ion-label>喜欢</ion-label>
+                    <ion-icon name="heart-circle-outline"></ion-icon>
                 </ion-tab-button>
                 <ion-tab-button tab="back" class="backButton"  data-verse="{{verse}}" data-chapter="{{chapter}}">
                     <ion-label>上一章</ion-label>
@@ -62,5 +75,5 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
-    <script src="/script/home/bundle/chapter.js"></script>
+    <script defer="true" src="/script/home/bundle/chapter.js"></script>
 </html>

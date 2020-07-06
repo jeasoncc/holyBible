@@ -5,41 +5,27 @@
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
         <link rel="stylesheet" href="/assert/style/main.css">
-        <title></title>
+        <title>圣经Holy Bible</title>
     </head>
     <body>
-
-        <ion-toolbar>
-            <ion-buttons slot="start">
-                <ion-button>
-                    <ion-icon slot="icon-only" name="return-up-back-outline"></ion-icon>
-                </ion-button>
-            </ion-buttons>
-            <ion-title>Holy Bible</ion-title>
-            <ion-buttons slot="secondary">
-                <ion-menu-button auto-hide="false"></ion-menu-button>
-            </ion-buttons>
-        </ion-toolbar>
-        <!-- Segment with anchors -->
-        <ion-segment>
-            <ion-segment-button value="dogs">
-                <ion-label>旧约</ion-label>
-            </ion-segment-button>
-            <ion-segment-button value="cats">
-                <ion-label>新约</ion-label>
-            </ion-segment-button>
-        </ion-segment>
-
-        <!-- Default Note -->
-        <!-- Notes in a List -->
-        <ion-list>
-            <ion-item>
-                <ion-note slot="start">Off</ion-note>
-                <ion-label>Note (Start)</ion-label>
-                <ion-note slot="end">On</ion-note>
-            </ion-item>
-        </ion-list>
-
+        <ion-app>
+            <ion-content fullscreen>
+                <ion-card-header>
+                    <ion-card-title></ion-card-title>
+                </ion-card-header>
+                <img src="/assert/image/2.svg" style="max-height:60vh"/>
+                <ion-card-content>
+                    <p style="text-align:right">你们当以耶稣基督的心为心</p>
+                    <p style="text-align:right">-《腓立比书2:5》</p>
+                </ion-card-content>
+                <br>
+                <br>
+                <br>
+                <div style="padding: 0 1rem">
+                    <ion-button  href="/bible/allroll/0" expand="block">神的语录</ion-button>
+                </div>
+            </ion-content>
+        </ion-app>
 
     </body>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>

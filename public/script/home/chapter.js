@@ -1,5 +1,6 @@
 const fromEvent = require("rxjs").fromEvent
 
+console.log( presentToast)
 const changePageFn = (() => {
     fromEvent($(`.nextButton`), 'click').subscribe((e) => {
         const target = e.currentTarget
@@ -11,7 +12,11 @@ const changePageFn = (() => {
             if(chapter == chapterNumber) return `/bible/chapter/${Number(verse) + 1}/${1}`
             return `/bible/chapter/${verse }/${Number(chapter)+ 1}`
         }
-        location.href =href(verse, chapter)
+        if(chapter !== chapterNumber) {
+            location.href =href(verse, chapter)
+        } else {
+            presentToast('已经是最后一章了')
+        }
     });
     fromEvent($(`.backButton`), 'click').subscribe((e) => {
         const target = e.currentTarget
@@ -21,6 +26,10 @@ const changePageFn = (() => {
             if(chapter > 1) return `/bible/chapter/${verse }/${Number(chapter) - 1}`
             return `/bible/chapter/${verse }/${Number(chapter) }`
         }
-        location.href =href(verse, chapter)
+        if(chapter > 1) {
+            location.href =href(verse, chapter)
+        } else {
+            presentToast('已经是第一章了')
+        }
     });
 })()
