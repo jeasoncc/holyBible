@@ -6223,14 +6223,30 @@ exports.toSubscriber = toSubscriber;
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 const fromEvent = require("rxjs").fromEvent
 
-console.log( presentToast)
+const initHeader = (() => {
+    var content = document.querySelector('ion-content');
+    content.scrollEvents = true;
+    fromEvent(content, 'ionScrollStart').subscribe(e => {
+        console.log(`scroll start`)
+        $(`.headroom`).addClass("headroom--unpinned");
+        $(`.bottomRoom`).addClass("bottomRoom--unpinned");
+    })
+   // fromEvent(content, 'ionScroll').subscribe(e => {
+   //     console.log(e.detail)
+   // })
+    fromEvent(content, 'ionScrollEnd').subscribe(e => {
+        console.log('scroll end')
+        $(`.headroom`).removeClass("headroom--unpinned");
+        $(`.bottomRoom`).removeClass("bottomRoom--unpinned");
+    })
+})();
+
 const changePageFn = (() => {
     fromEvent($(`.nextButton`), 'click').subscribe((e) => {
         const target = e.currentTarget
         const verse = $(target).attr("data-verse")
         const chapter = $(target).attr("data-chapter")
         const chapterNumber  = $(target).attr("data-chapterNum")
-        console.log(chapterNumber  )
         const href = (verse,chapter) => {
             if(chapter == chapterNumber) return `/bible/chapter/${Number(verse) + 1}/${1}`
             return `/bible/chapter/${verse }/${Number(chapter)+ 1}`
@@ -6257,5 +6273,5 @@ const changePageFn = (() => {
     });
 })()
 
-}).call(this,require("fsovz6"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_9017ef38.js","/")
+}).call(this,require("fsovz6"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_4279489e.js","/")
 },{"buffer":3,"fsovz6":2,"rxjs":5}]},{},[106])

@@ -7,11 +7,12 @@ export class AppController {
 
   @Get()
   @Render('index')
-  getHello(){
-    return {me: "21212"}
+  getHome(){
+    return null
   }
-  @Get("/m")
-  get21(): string {
-    return this.appService.get21();
+  @Get("/policy")
+  @Render('policy')
+  getPolicy(){
+    return null
   }
 }

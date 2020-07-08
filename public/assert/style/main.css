@@ -1,17 +1,20 @@
-.h-screen{
-    height:100vh;
-}
 .headroom {
-    position:fixed;
-    top:0;
-    width: 100vw;
-    z-index: 100;
-    border: none;
+    will-change: transform;
     transition: transform 500ms linear;
-}
-.headroom--pinned {
-    transform: translateY(0%);
 }
 .headroom--unpinned {
     transform: translateY(-100%);
+}
+
+.bottomRoom{
+    will-change: transform;
+    transition: transform 500ms linear;
+}
+.bottomRoom--unpinned {
+    transform: translateY(100%);
+}
+.main{
+        background-size: cover;
+    background-image: url(https://cdn.pixabay.com/photo/2016/08/12/23/44/river-1590010_1280.jpg);
+    background-position: center;
 }

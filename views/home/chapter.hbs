@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width">
         <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+        <link rel="stylesheet" href="/assert/style/main.css"/>
         <title>圣经Holy Bible</title>
     </head>
     <script>
@@ -20,7 +21,7 @@
     </script>
     <body>
         <ion-app>
-            <ion-header class="header">
+            <ion-header class="headroom">
                 <ion-toolbar>
                     <ion-buttons slot="start">
                         <ion-button class="goBack" href="/bible/allroll/0">
@@ -36,18 +37,19 @@
                     <ion-title>圣经</ion-title>
                 </ion-toolbar>
             </ion-header>
-            <ion-content style="height:80vh">
+            <ion-content fullscreen >
                 <ion-list>
                     <!-- List Headers in Lists -->
                     <ion-list-header lines="inset">
                         <ion-label>
                             <span>第{{verse}}卷</span>-
-                            <span>第{{chapter}}章</span>
+                            <span>第{{chapter}}章</span>-
+                            <span>共{{volume.ChapterNumber}}章</span>
                         </ion-label>
                         <ion-button>{{volume.FullName}}</ion-button>
                     </ion-list-header>
                     {{#each row}}
-                    <ion-item class="rollButton" data-value="{{this.ID}}">
+                    <ion-item button class="rollButton" data-value="{{this.ID}}">
                         <p><span>{{this.VerseSN}}. </span>{{this.Lection}}</p>
                         <ion-avatar slot="end">
                             <ion-icon size="large" name="heart-dislike"></ion-icon>
@@ -56,7 +58,7 @@
                     {{/each}}
                 </ion-list>
             </ion-content>
-            <ion-tab-bar slot="bottom">
+            <ion-tab-bar slot="bottom" class="bottomRoom">
                 <ion-tab-button tab="games">
                     <ion-label>喜欢</ion-label>
                     <ion-icon name="heart-circle-outline"></ion-icon>
@@ -73,6 +75,7 @@
         </ion-app>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
     <script defer="true" src="/script/home/bundle/chapter.js"></script>
