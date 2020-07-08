@@ -8,46 +8,51 @@
         <title></title>
     </head>
     <body>
-        <ion-header>
-            <ion-toolbar>
-                <ion-buttons slot="start">
-                    <ion-button class="backButton">
-                        <ion-icon slot="icon-only" name="return-up-back-outline"></ion-icon>
-                    </ion-button>
-                </ion-buttons>
-                <ion-buttons slot="primary">
-                    <ion-button>
-                        <ion-menu-button auto-hide="false"></ion-menu-button>
-                    </ion-button>
-                </ion-buttons>
+        <ion-app>
+            <ion-header>
+                <ion-toolbar>
+                    <ion-buttons slot="start">
+                        <ion-button  href="/">
+                            <ion-icon slot="icon-only" name="return-up-back-outline"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                    <ion-buttons slot="primary">
+                        <ion-button>
+                            <ion-menu-button auto-hide="false"></ion-menu-button>
+                        </ion-button>
+                    </ion-buttons>
 
-                <ion-title>圣经</ion-title>
-            </ion-toolbar>
-        </ion-header>
-        <!-- Segment with anchors -->
-        <ion-segment>
-            <ion-segment-button value="/bible/allroll/0" class="bookButton">
-                <ion-label>旧约</ion-label>
-            </ion-segment-button>
-            <ion-segment-button value="/bible/allroll/1" class="bookButton">
-                <ion-label>新约</ion-label>
-            </ion-segment-button>
-        </ion-segment>
+                    <ion-title>圣经</ion-title>
+                </ion-toolbar>
 
-        <ion-content style="height:80vh">
-            <!-- Notes in a List -->
-            <ion-list>
-                <div>
-                    {{#each bookId}}
-                    <ion-item button class="rollButton" data-value="{{this.SN}}">
-                        <ion-note style="width:4rem;margin-right:.1rem" slot="start" color="tertiary">{{this.ShortName}}</ion-note>
-                        <ion-label>{{this.FullName}}</ion-label>
-                        <ion-note slot="end" >{{this.ChapterNumber}}</ion-note>
-                    </ion-item>
-                    {{/each}}
-                </div>
-            </ion-list>
-        </ion-content>
+                <ion-toolbar>
+                    <ion-segment >
+                        <ion-segment-button value="/bible/allroll/0" class="bookButton">
+                            <ion-label>旧约</ion-label>
+                        </ion-segment-button>
+                        <ion-segment-button value="/bible/allroll/1" class="bookButton">
+                            <ion-label>新约</ion-label>
+                        </ion-segment-button>
+                    </ion-segment>
+                </ion-toolbar>
+            </ion-header>
+            <!-- Segment with anchors -->
+
+            <ion-content fullscreen >
+                <!-- Notes in a List -->
+                <ion-list>
+                    <div>
+                        {{#each bookId}}
+                        <ion-item button class="rollButton" data-value="{{this.SN}}">
+                            <ion-note style="width:4rem;margin-right:.1rem" slot="start" color="tertiary">{{this.ShortName}}</ion-note>
+                            <ion-label>{{this.FullName}}</ion-label>
+                            <ion-note slot="end" >{{this.ChapterNumber}}</ion-note>
+                        </ion-item>
+                        {{/each}}
+                    </div>
+                </ion-list>
+            </ion-content>
+        </ion-app>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>

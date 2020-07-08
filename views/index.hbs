@@ -61,15 +61,18 @@
                         </ion-buttons>
                     <ion-title>圣经</ion-title>
                     <ion-buttons slot="end">
-                        <ion-button >
+                        <ion-button href="/login">
                             login
+                        </ion-button>
+                        <ion-button href="/register">
+                            Register
                         </ion-button>
                     </ion-buttons>
                     </ion-toolbar>
                 </ion-header>
                 <ion-content fullscreen>
-                    <img src="/assert/image/2.svg" alt="">
-                    <ion-card color="danger">
+                    <img src="/assert/image/2.svg" alt="" style="max-width:66vh">
+                    <ion-card color="primary">
                         <ion-card-header>
                             <ion-card-title>箴言 16-32</ion-card-title>
                         </ion-card-header>
@@ -78,52 +81,51 @@
                             不轻易发怒者胜过勇士，能自我控制胜过攻陷城池。
                         </ion-card-content>
                     </ion-card>
-                    <br>
-                    <ion-button expand="full" fill="outline">开始学习</ion-button>
-
+                    <ion-button href="/bible/allroll/0" expand="full" fill="outline">开始学习</ion-button>
                 </ion-content>
-                <ion-tabs>
+                <ion-tab-bar slot="bottom" class="bottomRoom">
+                    <ion-tabs>
 
-  <ion-tab tab="tab-schedule">
-    <ion-nav></ion-nav>
-  </ion-tab>
+                        <ion-tab tab="tab-schedule">
+                            <ion-nav></ion-nav>
+                        </ion-tab>
 
-  <ion-tab tab="tab-speaker">
-    <ion-nav></ion-nav>
-  </ion-tab>
+                        <ion-tab tab="tab-speaker">
+                            <ion-nav></ion-nav>
+                        </ion-tab>
 
-  <ion-tab tab="tab-map" component="page-map">
-    <ion-nav></ion-nav>
-  </ion-tab>
+                        <ion-tab tab="tab-map" component="page-map">
+                            <ion-nav></ion-nav>
+                        </ion-tab>
 
-  <ion-tab tab="tab-about" component="page-about">
-    <ion-nav></ion-nav>
-  </ion-tab>
+                        <ion-tab tab="tab-about" component="page-about">
+                            <ion-nav></ion-nav>
+                        </ion-tab>
 
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="tab-schedule">
-      <ion-icon name="calendar"></ion-icon>
-      <ion-label>学习历程</ion-label>
-      <ion-badge>6</ion-badge>
-    </ion-tab-button>
+                        <ion-tab-bar slot="bottom">
+                            <ion-tab-button tab="tab-schedule">
+                                <ion-icon name="calendar"></ion-icon>
+                                <ion-label>学习历程</ion-label>
+                                <ion-badge>6</ion-badge>
+                            </ion-tab-button>
 
-    <ion-tab-button tab="tab-speaker">
-      <ion-icon name="person-circle"></ion-icon>
-      <ion-label>我喜欢的</ion-label>
-    </ion-tab-button>
+                            <ion-tab-button tab="tab-speaker">
+                                <ion-icon name="person-circle"></ion-icon>
+                                <ion-label>我的喜欢</ion-label>
+                            </ion-tab-button>
 
-    <ion-tab-button tab="tab-map">
-      <ion-icon name="map"></ion-icon>
-      <ion-label>我的笔记</ion-label>
-    </ion-tab-button>
+                            <ion-tab-button tab="tab-map">
+                                <ion-icon name="map"></ion-icon>
+                                <ion-label>我的笔记</ion-label>
+                            </ion-tab-button>
 
-    <ion-tab-button tab="tab-about">
-      <ion-icon name="information-circle"></ion-icon>
-      <ion-label>关于我们</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-
-</ion-tabs>
+                            <ion-tab-button tab="tab-about">
+                                <ion-icon name="information-circle"></ion-icon>
+                                <ion-label>关于我们</ion-label>
+                            </ion-tab-button>
+                        </ion-tab-bar>
+                    </ion-tabs>
+                </ion-tab-bar>
             </div>
         </ion-app>
 

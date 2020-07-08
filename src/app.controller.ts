@@ -15,4 +15,15 @@ export class AppController {
   getPolicy(){
     return null
   }
+
+  @Get("/login")
+  @Render('login')
+  getLogin(){
+    return null
+  }
+  @Get("/register")
+  @Render('register')
+  getRegister(){
+    return null
+  }
 }
